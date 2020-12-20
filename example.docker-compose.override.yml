@@ -1,0 +1,36 @@
+version: '3.2'
+
+services:
+
+  cache:
+    image: cristiroma/varnish-drupal:d8
+    container_name: tpl_prod_varnish
+    restart: unless-stopped
+    depends_on:
+      - app
+# Enable traffic through Varnish
+#    ports:
+#      - "127.0.0.1:7123:80"
+
+  app:
+    image: cristiroma/wildlex:0008
+    container_name: tpl_prod_app
+    volumes:
+      - ./drupal-hash-salt-default.txt:/data/drupal-hash-salt-default.txt
+      - ./files:/usr/share/nginx/html/web/sites/default/files
+# Bypass Varnish
+#    ports:
+#      - "127.0.0.1:7123:80"
+
+  memcached:
+    container_name: tpl_prod_memcache
+    restart: unless-stopped
+    image: memcached:1.6.9
+    depends_on:
+      - app
+
+  db:
+    image: library/mariadb:latest
+    container_name: tpl_prod_db
+    restart: unless-stopped
+    env_file: .env

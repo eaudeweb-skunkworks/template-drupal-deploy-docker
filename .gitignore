@@ -1,5 +1,6 @@
-.env
 .app.env
+.env
+.idea
 docker-compose.override.yml
 files/
 **/*/drupal-hash-salt.txt

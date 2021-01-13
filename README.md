@@ -14,3 +14,11 @@ Deployment recipe for Drupal projects. Used for image-based, non-Kubernetes depl
 Notes: 
 - When pulling in this repo look for changes the two env files
 - `docker-compose.override.yml` is optional and can be used for debugging or extra mounts.
+
+# Notes
+
+* Multiple services can be started using `-f` switch and refer to appropriate YAML files:
+
+```
+docker-compose -f docker-compose.yml -f docker-service-cache.yml -f docker-service-db.yml -f docker-service-memcache.yml up
+```

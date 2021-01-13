@@ -1,0 +1,12 @@
+version: '3.2'
+
+services:
+
+  db:
+    image: ${CONTAINER_DB_VERSION}
+    container_name: ${CONTAINER_DB_NAME}
+    restart: unless-stopped
+    env_file: .app.env
+    networks:
+      internal_net:
+        ipv4_address: 172.168.10.11

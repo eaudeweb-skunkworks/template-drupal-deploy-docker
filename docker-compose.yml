@@ -10,6 +10,5 @@ services:
     volumes:
       - ./var/default/drupal-hash-salt.txt:/data/drupal-hash-salt-default.txt
       - ./var/default/files:/usr/share/nginx/html/web/sites/default/files
-      - ./var/default/private-files:/data/private-files/default
     ports:
       - 127.0.0.1:${CONTAINER_CACHE_PORT}:80

@@ -6,9 +6,8 @@ services:
     image: ${CONTAINER_MEMCACHED_VERSION}
     container_name: ${CONTAINER_MEMCACHED_NAME}
     restart: unless-stopped
-    env_file: .app.env
     depends_on:
       - app
-    networks:
-      internal_net:
-        ipv4_address: 172.168.10.12
+#    networks:
+#      internal_net:
+#        ipv4_address: 172.168.10.12

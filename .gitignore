@@ -4,5 +4,5 @@
 start.sh
 stop.sh
 docker-compose.override.yml
-files/
+var/default/files
 **/*/drupal-hash-salt.txt

@@ -6,9 +6,6 @@ services:
     # Extra mounts (i.e. multisite)
     volumes:
       - ./var/default/private-files:/data/private-files
-      - ./var/mysite/files:/usr/share/nginx/html/web/sites/mysite/files
-      - ./var/mysite/private-files:/data/mysite/private-files
-    # Enable direct access for debugging (disable in docker-compose.yml)
     ports:
       - "127.0.0.1:${CONTAINER_APP_PORT}:80"
 #    networks:

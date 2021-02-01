@@ -3,18 +3,20 @@ version: '3.2'
 services:
 
   app:
-    # Extra mounts (i.e. multisite)
-    volumes:
-      - ./var/default/private-files:/data/private-files
     ports:
       - "127.0.0.1:${CONTAINER_APP_PORT}:80"
-#    networks:
-#      internal_net:
-#        ipv4_address: 172.168.10.10
+# Extra mounts (i.e. multisite)
+#     volumes:
+#       - ./var/default/private-files:/data/private-files
+# Custom network
+#     networks:
+#       internal_net:
+#         ipv4_address: 172.168.10.10
 
-#networks:
-#  internal_net:
-#    ipam:
-#      driver: default
-#      config:
-#        - subnet: 172.168.10.0/16
+# Custom network
+# networks:
+#   internal_net:
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 172.168.10.0/16

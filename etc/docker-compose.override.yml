@@ -19,4 +19,4 @@ services:
 #     ipam:
 #       driver: default
 #       config:
-#         - subnet: 172.168.10.0/16
+#         - subnet: 172.168.10.0/24

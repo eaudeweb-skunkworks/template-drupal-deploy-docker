@@ -25,3 +25,11 @@ docker-compose -f docker-compose.yml -f etc/service.cache.yml -f etc/service.db.
 ```
 
 Or create file `start.sh` and `stop.sh` wrapper around the command.
+
+
+# Host new project using this repository
+
+1. The hosted Drupal project must have the actions configured, see https://github.com/eaudeweb-skunkworks/template-drupal-deploy-docker
+2. Create a new Docker HUB repository to host images
+3. Configure secrets in the Drupal repository, i.e. https://github.com/ORG/PROJECT/settings/secrets/actions: `DOCKERHUB_REPOSITORY`, `DOCKERHUB_TOKEN`, `DOCKERHUB_USERNAME`
+4. Merge to `test` to create test image, add a new tag to create `prod` image

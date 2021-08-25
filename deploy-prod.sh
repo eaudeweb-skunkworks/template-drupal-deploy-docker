@@ -38,12 +38,12 @@ echo "Current app version: $APP_VERSION ..."
 REPO=$(echo "$APP_VERSION" | awk -F: '{print $1}')
 APP_VERSION_NEW="${REPO}:${DEPLOY_TAG}"
 
+echo "Doing a database backup ..."
+docker exec $APP_CONTAINER_NAME ./vendor/bin/robo sql:dump
+
 # Replace new tag in .env
 echo "Setting new version in .env: ${APP_VERSION_NEW}"
 sed -i.bak "s+${APP_VERSION}+${APP_VERSION_NEW}+g" .env
-
-echo "Doing a database backup ..."
-docker exec $APP_CONTAINER_NAME ./vendor/bin/robo sql:dump
 
 echo "Pulling latest changes ..."
 docker-compose pull

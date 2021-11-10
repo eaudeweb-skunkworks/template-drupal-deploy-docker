@@ -1,5 +1,6 @@
 .app.env
 .env
+.env.bak
 .idea
 start.sh
 stop.sh

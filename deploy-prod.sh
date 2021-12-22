@@ -25,12 +25,10 @@ fi
 
 # Test for existing changes
 echo 'Testing for Drupal configuration changes ...'
-CONFIG_STATUS=$(docker exec "${APP_CONTAINER_NAME}" ./vendor/bin/drush config:status -n)
-echo "$CONFIG_STATUS"
-echo "$CONFIG_STATUS" | grep -q "No differences"
-echo $?
-
+CONFIG_STATUS=$(docker exec "${APP_CONTAINER_NAME}" ./vendor/bin/drush config:status -n 2>&1)
+echo "${CONFIG_STATUS}" | grep -i -q -s "No differences" 
 echo "No changes, moving on ..."
+
 APP_VERSION="${CONTAINER_APP_VERSION}"
 echo "Current app version: $APP_VERSION ..."
 

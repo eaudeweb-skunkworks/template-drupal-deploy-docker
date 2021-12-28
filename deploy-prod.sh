@@ -19,7 +19,9 @@ done
 DEPLOY_TAG="$@"
 if [ ! "${DEPLOY_TAG}" ]; then
         echo "Usage: ./deploy-prod.sh [--skip-config-check] <git_tag_name>"
-        echo "    --skip-config-check - Skip checking configuration changes"
+        echo ""
+        echo "  --skip-config-check - Deploy when Drupal configuration changes are present"
+        echo "                        WARNING: This will override all database changes"
         exit 1;
 fi
 

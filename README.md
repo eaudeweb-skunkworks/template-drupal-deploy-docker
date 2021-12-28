@@ -16,6 +16,18 @@ Notes:
 - When pulling in this repo look for changes the two env files
 - `docker-compose.override.yml` is optional and can be used for debugging or extra mounts.
 
+
+# Accessing docker as non-root
+
+If you need to execute the commands using `sudo`, you can create a file to enable sudo without password in `/etc/sudoers.d/drupal-deploy-project`
+
+```
+ALL ALL = NOPASSWD:/path/to/project/folder/deploy-test.sh
+ALL ALL = NOPASSWD:/path/to/project/folder/deploy-prod.sh
+ALL ALL = NOPASSWD:/path/to/project/folder/sql-dump.sh
+```
+
+
 # Notes
 
 * Multiple services can be started using `-f` switch and refer to appropriate YAML files:

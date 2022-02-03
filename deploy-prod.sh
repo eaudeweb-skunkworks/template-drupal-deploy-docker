@@ -73,7 +73,6 @@ APP_VERSION_NEW="${REPO}:${DEPLOY_TAG}"
 echo -e "\033[0;31mNew version     : ${APP_VERSION_NEW}\033[0m"
 sed -i.bak "s+${APP_VERSION}+${APP_VERSION_NEW}+g" .env
 
-exit 1
 echo "Pulling latest changes ..."
 docker-compose pull
 

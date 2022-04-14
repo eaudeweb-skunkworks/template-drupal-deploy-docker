@@ -10,5 +10,9 @@ services:
     volumes:
       - ./var/default/drupal-hash-salt.txt:/data/drupal-hash-salt-default.txt
       - ./var/default/files:/usr/share/nginx/html/web/sites/default/files
+    logging:
+      options:
+        max-file: "5"
+        max-size: "10m"
 #    ports:
 #      - 127.0.0.1:${CONTAINER_APP_PORT}:80
